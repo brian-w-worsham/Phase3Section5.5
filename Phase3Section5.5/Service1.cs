@@ -7,25 +7,39 @@ using System.Text;
 
 namespace Phase3Section5._5
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    public class Service1 : IService1
+    public class CalculatorService : ICalculator
     {
-        public string GetData(int value)
+        public double Add(double n1, double n2)
         {
-            return string.Format("You entered: {0}", value);
+            double result = n1 + n2;
+            Console.WriteLine("Received Add({0},{1})", n1, n2);
+            // Code added to write output to the console window.
+            Console.WriteLine("Return: {0}", result);
+            return result;
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public double Subtract(double n1, double n2)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            double result = n1 - n2;
+            Console.WriteLine("Received Subtract({0},{1})", n1, n2);
+            Console.WriteLine("Return: {0}", result);
+            return result;
+        }
+
+        public double Multiply(double n1, double n2)
+        {
+            double result = n1 * n2;
+            Console.WriteLine("Received Multiply({0},{1})", n1, n2);
+            Console.WriteLine("Return: {0}", result);
+            return result;
+        }
+
+        public double Divide(double n1, double n2)
+        {
+            double result = n1 / n2;
+            Console.WriteLine("Received Divide({0},{1})", n1, n2);
+            Console.WriteLine("Return: {0}", result);
+            return result;
         }
     }
 }
